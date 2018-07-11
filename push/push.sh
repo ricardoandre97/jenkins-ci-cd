@@ -16,12 +16,12 @@ validate () {
 REGISTRY="linuxfacilito.online:5043"
 IMAGE="hello-world"
 
-echo && echo "*** Logging in ***"
-docker login -u ricardo -p $PASS $REGISTRY
+echo "*** Logging in ***"
+docker login -u ricardo -p $PASS $REGISTRY | grep -v WARN
 validate
-echo && echo "*** Tagging image ***"
+echo "*** Tagging image ***"
 docker tag hello-world $REGISTRY/$IMAGE:$BUILD_TAG
 validate
-echo && echo "*** Pushing image ***"
+echo "*** Pushing image ***"
 docker push $REGISTRY/$IMAGE:$BUILD_TAG
 validate
