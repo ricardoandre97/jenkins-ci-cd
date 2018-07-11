@@ -16,21 +16,16 @@ pipeline {
                 }
             }
         }
-/*      stage('Test') {
+
+        stage('Build') {
             steps {
-                sh 'cd simple-java-maven-app/ && mvn test'
+                sh 'docker build -t app:${env.BUILD_TAG} -f build/Dockerfile .'
             }
             post {
-                always {
-                    junit 'simple-java-maven-app/target/surefire-reports/*.xml'
+                success {
+                    archiveArtifacts artifacts: 'build/simple-java-maven-app/target/*.jar', fingerprint: true
                 }
             }
-        }
-        stage('Deploy') {
-            steps {
-                sh ''
-            }
-        }
-        */
+        }                        
     }
 }

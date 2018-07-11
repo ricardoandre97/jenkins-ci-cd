@@ -11,3 +11,5 @@ FROM openjdk:8-jre-alpine
 RUN mkdir /artifacts
 
 COPY --from=builder /app/*.jar /artifacts/app.jar
+
+CMD java -jar /artifacts/app.jar
