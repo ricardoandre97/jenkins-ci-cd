@@ -19,7 +19,7 @@ pipeline {
         }                        
         stage('Test') {
             steps {
-                sh './build/mvn.sh mvn test'
+                sh './build/mvn-test.sh mvn test'
             }
             post {
                 always {
