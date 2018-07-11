@@ -4,6 +4,10 @@ pipeline {
 
     stages {
 
+        environment {
+        	PASS = credentials('registry-pass')
+        }
+
         stage('Build') {
             steps {
                 sh '''
@@ -28,9 +32,6 @@ pipeline {
             }
         }
         stage('Push') {
-        	environment{
-        		PASS = credentials('registry-pass')
-        	}
             steps {
                 sh './push/push.sh'
             }
