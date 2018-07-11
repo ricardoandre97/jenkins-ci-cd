@@ -16,5 +16,15 @@ pipeline {
 				}
 			}
 		}
+		stage('Test') {
+			steps {
+				sh 'cd simple-java-maven-app/ && mvn test'
+			}
+			post {
+				always {
+					junit 'simple-java-maven-app/target/surefire-reports/*.xml'
+				}
+			}
+		}
 	}
 }
