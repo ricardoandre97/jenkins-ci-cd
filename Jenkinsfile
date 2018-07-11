@@ -2,11 +2,11 @@ pipeline {
 
     agent any
 
-    stages {
+    environment {
+  		PASS = credentials('registry-pass')
+    }
 
-        environment {
-        	PASS = credentials('registry-pass')
-        }
+    stages {
 
         stage('Build') {
             steps {
