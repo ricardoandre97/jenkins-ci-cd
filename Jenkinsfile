@@ -35,5 +35,8 @@ pipeline {
                 sh './push/push.sh'
             }
         }
+        stage('Deploy') {
+        	sh './deploy/deploy.sh'
+        }
     }
 }
