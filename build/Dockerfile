@@ -4,7 +4,7 @@ COPY simple-java-maven-app /app
 
 WORKDIR /app
 
-RUN mvn -B -DskipTests clean package
+RUN ls /app &&  mvn -B -DskipTests clean package
 
 FROM openjdk:8-jre-alpine
 
