@@ -32,7 +32,7 @@ pipeline {
         		PASS = credentials('registry-pass')
         	}
             steps {
-                sh 'echo $PASS'
+                sh './push/push.sh'
             }
         }
     }
