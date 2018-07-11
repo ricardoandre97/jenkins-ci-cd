@@ -19,7 +19,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'docker build -t app:${BUILD_TAG} -f build/Dockerfile .'
+                sh 'docker build -t app:${BUILD_TAG} -f build/Dockerfile build'
             }
             post {
                 success {
