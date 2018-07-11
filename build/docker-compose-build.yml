@@ -1,9 +1,7 @@
 version: '3'
 services:
   app:
-    image: "maven:3-alpine"
-    volumes:
-      - "$PWD/simple-java-maven-app:/app"
-      - "/root/.m2:/root/.m2"
-    working_dir: /app
-    command: mvn test
+    image: "app:$BUILD_TAG"
+    build:
+      context: .
+      dockerfile: Dockerfile-App

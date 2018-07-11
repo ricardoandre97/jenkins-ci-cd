@@ -1,3 +1,4 @@
 #!/bin/sh
 
-docker run --rm -v /root/.m2:/root/.m2 -v $PWD/build/simple-java-maven-app:/app -w /app maven:3-alpine "$@"
+echo "*** Building image"
+cd build && docker-compose -f docker-compose-build.yml build --no-cache
