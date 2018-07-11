@@ -27,5 +27,13 @@ pipeline {
                 }
             }
         }
+        stage('Push') {
+        	environment{
+        		PASS = credentials('registry-pass')
+        	}
+            steps {
+                sh 'echo $PASS'
+            }
+        }
     }
 }
